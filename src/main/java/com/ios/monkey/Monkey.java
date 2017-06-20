@@ -55,7 +55,7 @@ public class Monkey {
                 System.out.println(
                         "-u:设备的UDID\n" +
                         "-b:测试App的Bundle\n"+
-                        "-t:运行时长\n"+
+                        "-t:运行时长（分）\n"+
                         "-port:macaca服务的端口，默认3456\n" +
                         "-proxyport:usb代理端口，默认8900");
                 break;
@@ -72,7 +72,6 @@ public class Monkey {
             }
             
             try {
-            	System.out.println("本次设定的运行时长【" + TIMING + "】分钟");
             	new Monkey().run();
             } catch (Exception e) {
             	e.printStackTrace();
@@ -82,6 +81,7 @@ public class Monkey {
 
 
     private void run() throws Exception {
+    	System.out.println("本次设定的运行时长【" + TIMING + "】分钟");
     	long startTime = System.currentTimeMillis();
         init(startTime);
         width = (Integer) driver.getWindowSize().get("width");
