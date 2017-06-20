@@ -17,7 +17,7 @@
 			        </descriptorRefs>
 			        <archive>
 			            <manifest>
-			                <mainClass>com.pingan.monkey.Monkey</mainClass>
+			                <mainClass>com.ios.monkey.Monkey</mainClass>
 			            </manifest>
 			        </archive>
 			    </configuration>
@@ -72,10 +72,10 @@
             <scope>test</scope>
         </dependency>
 
-        <dependency>
-            <groupId>macaca.webdriver.client</groupId>
-            <artifactId>macacaclient</artifactId>
-            <version>2.0.4</version>
-        </dependency>
+		<dependency>
+			<groupId>macaca.webdriver.client</groupId>
+			<artifactId>macacaclient</artifactId>
+			<version>2.0.7</version>
+		</dependency>
     </dependencies>
 </project>

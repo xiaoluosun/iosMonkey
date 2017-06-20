@@ -1,32 +1,28 @@
-package com.pingan.monkey;
+package com.ios.monkey;
 
-import macaca.client.common.Keycode;
+import com.ios.monkey.util.Shell;
 
 import java.io.IOException;
 
-import com.pingan.monkey.util.Shell;
+/**
+ * Created by hujiachun on 16/12/23.
+ */
+public class MonkeyLaunchEvent extends MonkeyEvent {
+    private String UDID, BUNDLEID;
 
-import macaca.client.MacacaClient;
-
-public class MonkeyHomeKeyEvent extends MonkeyEvent{
-	private String UDID, BUNDLEID;	
-    private MacacaClient driver;
-
-    public MonkeyHomeKeyEvent(MacacaClient driver,String udid, String bundleid) {
-        super(MonkeyEvent.EVENT_TYPE_HOMEKEY);
-        this.driver = driver;
+    public MonkeyLaunchEvent(String udid, String bundleid) {
+        super(MonkeyEvent.EVENT_TYPE_LAUNCH);
         this.UDID = udid;
         this.BUNDLEID = bundleid;
 
     }
 
-
     public int injectEvent() throws Exception {
-    	System.out.println("sending HOMEKEY Event.");
-    	driver.keys("\uE105");
-    	new Thread(new Runnable() {
+
+        new Thread(new Runnable() {
             public void run() {
                 try {
+                    Thread.sleep(2000);
                     Shell.exec("pkill idevicedebug");
                     System.out.println("idevicedebug stop");
                 } catch (IOException e) {
@@ -37,6 +33,8 @@ public class MonkeyHomeKeyEvent extends MonkeyEvent{
             }
         }).start();
         System.out.println("launch App:" + BUNDLEID);
+//        new Thread(new Runnable() {
+//            public void run() {
                 try {
                     Shell.exec("idevicedebug -u " + UDID + " run " + BUNDLEID);
                     Thread.sleep(3000);
@@ -45,7 +43,10 @@ public class MonkeyHomeKeyEvent extends MonkeyEvent{
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
+//            }
+//        }).start();
+
 
         return MonkeyEvent.INJECT_SUCCESS;
-    } 
+    }
 }

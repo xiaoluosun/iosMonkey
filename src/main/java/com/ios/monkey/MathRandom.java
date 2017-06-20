@@ -1,4 +1,4 @@
-package com.pingan.monkey;
+package com.ios.monkey;
 
 /**
  * Created by hujiachun on 16/12/23.

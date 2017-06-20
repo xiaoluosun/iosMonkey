@@ -1,4 +1,4 @@
-package com.pingan.monkey;
+package com.ios.monkey;
 
 import com.alibaba.fastjson.JSONObject;
 import macaca.client.MacacaClient;

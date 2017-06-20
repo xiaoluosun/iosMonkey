@@ -1,4 +1,4 @@
-package com.pingan.monkey;
+package com.ios.monkey;
 
 /**
  * abstract class for monkey event

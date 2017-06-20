@@ -1,17 +1,17 @@
-package com.pingan.monkey;
+package com.ios.monkey;
 
 import com.alibaba.fastjson.JSONObject;
 import macaca.client.MacacaClient;
 
 /**
- * Created by hujiachun on 16/12/23.
+ * Created by bzd on 2017.3.8 途牛app特殊的需要
  */
-public class MonkeyTapEvent extends MonkeyEvent{
+public class MonkeyTapSpecialPointEvent extends MonkeyEvent{
     private int width, height;
     private MacacaClient driver;
 
 
-    public MonkeyTapEvent(MacacaClient driver, int width, int height) {
+    public MonkeyTapSpecialPointEvent(MacacaClient driver, int width, int height) {
         super(MonkeyEvent.EVENT_TYPE_TAP);
         this.width = width;
         this.height = height;
@@ -21,12 +21,10 @@ public class MonkeyTapEvent extends MonkeyEvent{
 
 
     public int injectEvent() throws Exception {
-        double x = Math.ceil(Math.random() * (width - 1));
-        double y = Math.ceil(Math.random() * (height - 1));
-        System.out.println("sending Tap Event : Tap->(" + x + ", " + y + ")");
+        System.out.println("sending SpecialPoint Tap Event : Tap->(" + this.width + ", " + this.height + ")");
         JSONObject jSONObject = new JSONObject();
-        jSONObject.put("x", x);
-        jSONObject.put("y", y);
+        jSONObject.put("x", this.width);
+        jSONObject.put("y", this.height);
         driver.touch("tap", jSONObject);
         //driver.touchAsync("tap", jSONObject);
         return MonkeyEvent.INJECT_SUCCESS;
