@@ -120,6 +120,7 @@ https://github.com/baozhida/MacacaAutomation
 ```
 $ java -jar iosMonkey-1.0.jar -h
 -u:设备的UDID
+-t:运行时长（分）
 -b:测试App的Bundle
 -port:macaca服务的端口，默认3456
 -proxyport:usb代理端口，默认8900
