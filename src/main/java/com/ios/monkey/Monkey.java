@@ -55,7 +55,7 @@ public class Monkey {
                 System.out.println(
                         "-u:设备的UDID\n" +
                         "-b:测试App的Bundle\n"+
-                        "-t:运行时长（分）\n"+
+                        "-t:运行时长（分），可选，默认180分钟\n"+
                         "-port:macaca服务的端口，默认3456\n" +
                         "-proxyport:usb代理端口，默认8900");
                 break;

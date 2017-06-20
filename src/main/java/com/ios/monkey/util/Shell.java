@@ -24,7 +24,7 @@ public class Shell {
 		        	
 					if(UDID.contains("-")) {
 						System.out.println("=======启动模拟器的app守护进程=======");
-						String catLog = "tail -n 3 -f /Users/testmac/Library/Logs/CoreSimulator/" + UDID + "/system.log";
+						String catLog = "tail -n 3 -f ~/Library/Logs/CoreSimulator/" + UDID + "/system.log";
 						Process pp = Runtime.getRuntime().exec(catLog);
 						BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(pp.getInputStream()));
 
